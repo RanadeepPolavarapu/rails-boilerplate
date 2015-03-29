@@ -106,7 +106,7 @@ Create a PostgreSQL Database:
                                       List of databases
        Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
     -----------+----------+----------+-------------+-------------+-----------------------
-     myapp      | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+     myapp     | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
      postgres  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
      template0 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
                |          |          |             |             | postgres=CTc/postgres
