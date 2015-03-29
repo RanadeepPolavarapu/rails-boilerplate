@@ -132,3 +132,23 @@ Create a PostgreSQL Database:
 	            |          |          |             |             | postgres=CTc/postgres
 	(4 rows)
 
+Step 5 - Install Rails
+-----------------------  
+	
+	sudo gem install --no-rdoc --no-ri rails
+
+Step 6 - Create a new Rails app
+--------------------------------  
+
+	rails new rails-boilerplate --skip-bundle
+	cd rails-boilerplate
+
+Step 7 - Install PostgreSQL Gem
+---------------------------------
+
+	gem install pg
+
+
+Step 8 - Customize Gemfile
+----------------------------
+Edit the `Gemfile` to your liking and run `bundle install`.
