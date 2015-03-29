@@ -80,3 +80,54 @@ Install Ruby on Rails with no Ruby Documentation (`rdoc`) or Ruby Interactive (`
 	
 	sudo gem install --no-rdoc --no-ri rails
 
+Step 5 - Install PostgreSQL
+----------------------------
+Feel free to use MySQL however, I highly prefer PostgreSQL.
+
+	sudo apt-get install postgresql postgresql-contrib libpq-dev
+
+Create a custom `rails` user in PostgreSQL and specify a custom password:  
+Use `dropuser` if you mess up.  
+
+    postgres@dev:~$ createuser -P rails
+    Enter password for new role: 
+    Enter it again: 
+    postgres@dev:~$ 
+
+Create a PostgreSQL Database:
+
+    postgres@dev:~$ psql
+    psql (9.3.6)
+    Type "help" for help.
+    
+    postgres=# create database myapp;
+    CREATE DATABASE
+    postgres=# \l
+                                      List of databases
+       Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
+    -----------+----------+----------+-------------+-------------+-----------------------
+     myapp      | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+     postgres  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+     template0 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+               |          |          |             |             | postgres=CTc/postgres
+     template1 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+               |          |          |             |             | postgres=CTc/postgres
+    (4 rows)
+    
+    postgres=# GRANT ALL PRIVILEGES ON DATABASE myapp TO postgres;
+    GRANT
+    postgres=# GRANT ALL PRIVILEGES ON DATABASE myapp TO rails;
+    GRANT
+    postgres=# \l
+                                      List of databases
+       Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
+    -----------+----------+----------+-------------+-------------+-----------------------
+     myapp     | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =Tc/postgres         +
+               |          |          |             |             | postgres=CTc/postgres
+     postgres  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+     template0 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+               |          |          |             |             | postgres=CTc/postgres
+     template1 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+               |          |          |             |             | postgres=CTc/postgres
+    (4 rows)
+
