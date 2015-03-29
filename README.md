@@ -146,7 +146,7 @@ Step 6 - Create a new Rails app
 Step 7 - Install PostgreSQL Gem
 ---------------------------------
 
-	gem install pg
+	sudo gem install pg
 
 
 Step 8 - Customize Gemfile
